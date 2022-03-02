@@ -11,7 +11,6 @@ import torch.nn.functional as F
 
 from yolox.utils import bboxes_iou
 
-from .losses import IOUloss
 from .network_blocks import BaseConv, DWConv
 
 
@@ -125,7 +124,6 @@ class YOLOXHead(nn.Module):
         self.use_l1 = False
         self.l1_loss = nn.L1Loss(reduction="none")
         self.bcewithlog_loss = nn.BCEWithLogitsLoss(reduction="none")
-        self.iou_loss = IOUloss(reduction="none")
         self.strides = strides
         self.grids = [torch.zeros(1)] * len(in_channels)
 
