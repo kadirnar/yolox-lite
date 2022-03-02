@@ -4,7 +4,6 @@ import time
 from loguru import logger
 
 import cv2
-
 import torch
 
 from yolox.data.data_augment import ValTransform
