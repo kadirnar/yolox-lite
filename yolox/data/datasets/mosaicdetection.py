@@ -7,7 +7,7 @@ import random
 import cv2
 import numpy as np
 
-from yolox.utils import adjust_box_anns, get_local_rank
+from yolox.utils import adjust_box_anns
 
 from ..data_augment import random_affine
 from .datasets_wrapper import Dataset
@@ -70,10 +70,10 @@ class MosaicDetection(Dataset):
         self.enable_mixup = enable_mixup
         self.mosaic_prob = mosaic_prob
         self.mixup_prob = mixup_prob
-        self.local_rank = get_local_rank()
 
     def __len__(self):
         return len(self._dataset)
+
 
     @Dataset.mosaic_getitem
     def __getitem__(self, idx):

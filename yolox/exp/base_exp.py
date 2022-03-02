@@ -11,8 +11,6 @@ from tabulate import tabulate
 import torch
 from torch.nn import Module
 
-from yolox.utils import LRScheduler
-
 
 class BaseExp(metaclass=ABCMeta):
     """Basic class for any experiment."""
@@ -35,12 +33,6 @@ class BaseExp(metaclass=ABCMeta):
 
     @abstractmethod
     def get_optimizer(self, batch_size: int) -> torch.optim.Optimizer:
-        pass
-
-    @abstractmethod
-    def get_lr_scheduler(
-        self, lr: float, iters_per_epoch: int, **kwargs
-    ) -> LRScheduler:
         pass
 
     @abstractmethod
